@@ -11,7 +11,7 @@ let persons = [
     "id": 1
   }
 ]
-
+// Mongoose
 const mongoose = require('mongoose')
 
 if ( process.argv.length<3 ) {
@@ -36,27 +36,6 @@ const personSchema = new mongoose.Schema({
 
 const Person = mongoose.model('Person', personSchema)
 
-if (!name) {
-  Person.find({}).then(result => {
-    console.log("Phonebook:")
-    result.forEach(person => {
-      console.log(person)
-    })
-  })
-    .then(response => mongoose.connection.close())
-    
-} else {
-  const person = new Person({
-    name: name,
-    number: number,
-    date: new Date()
-  })  
-
-  person.save().then(response => {
-    console.log(`added ${name} number ${number} to phonebook`)
-    mongoose.connection.close()
-  })
-}
 
 
 app.use(express.static('build'))
