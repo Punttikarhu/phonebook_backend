@@ -13,7 +13,7 @@ let persons = [
 ]
 
 
-
+app.use(express.static('build'))
 app.use(cors())
 app.use(bodyParser.json())
 
@@ -54,9 +54,6 @@ app.post('/api/persons', (req, res) => {
   persons = persons.concat(person)
 
   res.json(person)
-
-
-
 })
 
 app.get('/', (req, res) => {
