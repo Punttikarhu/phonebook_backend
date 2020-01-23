@@ -17,7 +17,7 @@ const mongoose = require('mongoose')
 const url = `mongodb+srv://Punttikarhu:Weetabix@89@cluster0-diflf.mongodb.net/test?retryWrites=true&mongodb+srv://fullstack:${password}@cluster0-ostce.mongodb.net/test?retryWrites=true`
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-
+/*
 const personSchema = new mongoose.Schema({
   name: String,
   number: String,
@@ -25,7 +25,7 @@ const personSchema = new mongoose.Schema({
 })
 
 const Person = mongoose.model('Person', personSchema)
-
+*/
 app.use(express.static('build'))
 app.use(cors())
 app.use(bodyParser.json())
