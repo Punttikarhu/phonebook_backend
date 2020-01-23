@@ -81,8 +81,8 @@ app.post('/api/persons', (req, res) => {
 
 
 app.get('/api/persons', (req, res) => {
-  Note.find({}).then(persons => {
-    response.json(persons)
+  Person.find({}).then(data => {
+    response.json(data)
   }) 
 })
 
