@@ -103,11 +103,8 @@ app.post('/api/persons', (req, res) => {
 })
 
 app.get('/api/persons', (req, res) => {
-  Person.find({}).then(result => {
-    console.log("Phonebook:")
-    result.forEach(person => {
-      console.log(person)
-    })
+  Person.find({}).then(persons => {
+    response.json(persons)  
   })
     .then(response => mongoose.connection.close())
 })
