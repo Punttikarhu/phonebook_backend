@@ -26,6 +26,15 @@ const personSchema = new mongoose.Schema({
 
 const Person = mongoose.model('Person', personSchema)
 
+//Change returned json
+personSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id
+    delete returnedObject.__v
+  }
+})
+
 app.use(express.static('build'))
 app.use(cors())
 app.use(bodyParser.json())
