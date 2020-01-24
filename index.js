@@ -14,7 +14,7 @@ let persons = [
 
 const mongoose = require('mongoose')
 
-const url = `mongodb+srv://Punttikarhu:Weetabix@89@cluster0-diflf.mongodb.net/test?retryWrites=true&mongodb+srv://fullstack:${password}@cluster0-ostce.mongodb.net/test?retryWrites=true`
+const url = "mongodb+srv://Punttikarhu:Weetabix@89@cluster0-diflf.mongodb.net/test?retryWrites=true"
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 /*
