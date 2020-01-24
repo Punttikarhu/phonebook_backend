@@ -1,39 +1,10 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
-
-let persons = [
-  {
-    "name": "Mary Poppendieck",
-    "number": "39-23-6423122",
-    "id": 1
-  }
-]
-
-const mongoose = require('mongoose')
-
-const url = 'mongodb+srv://Punttikarhu:Weetabix@89@cluster0-diflf.mongodb.net/test?retryWrites=true'
-
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-
-const personSchema = new mongoose.Schema({
-  name: String,
-  number: String,
-  date: Date,
-})
-
-const Person = mongoose.model('Person', personSchema)
-
-//Change returned json
-personSchema.set('toJSON', {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString();
-    delete returnedObject._id
-    delete returnedObject.__v
-  }
-})
+const Person = require('./models/Person')
 
 app.use(express.static('build'))
 app.use(cors())
@@ -66,21 +37,22 @@ app.post('/api/persons', (req, res) => {
     })
   }
 
-  const person = {
-    name: body.name,
-    number: body.number,
-    date: new Date(),
-    id: Math.random()*10000
-  }
+  const person = new Person({
+    name: name,
+    number: number,
+    date: new Date()
+  }) 
 
-  persons = persons.concat(person)
-  res.json(person)
+  person.save().then(savedPerson => {
+    console.log(`added ${name} number ${number} to phonebook`)
+    res.json(savedPerson.toJSON())
+  })
 })
 
 
 app.get('/api/persons', (req, res) => {
   Person.find({}).then(persons => {
-    res.json(persons)
+    res.json(persons.map(persons => person.toJSON()))
   })
 })
 
