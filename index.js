@@ -70,7 +70,9 @@ app.post('/api/persons', (req, res) => {
 
 
 app.get('/api/persons', (req, res) => {
-    res.json('hello')
+  Person.find({}).then(persons => {
+    res.json(persons)
+  })
 })
 
 app.get('/api/persons/:id', (req, res) => {
