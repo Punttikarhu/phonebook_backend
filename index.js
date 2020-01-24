@@ -65,13 +65,12 @@ app.post('/api/persons', (req, res) => {
   }
 
   persons = persons.concat(person)
-
   res.json(person)
 })
 
 
 app.get('/api/persons', (req, res) => {
-    response.json()
+    res.json('hello')
 })
 
 app.get('/api/persons/:id', (req, res) => {
