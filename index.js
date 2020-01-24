@@ -7,7 +7,8 @@ const cors = require('cors')
 
 const mongoose = require('mongoose')
 
-const url = process.env.MONGODB_URI
+const url = 'mongodb+srv://Punttikarhu:Weetabix@89@cluster0-diflf.mongodb.net/test?retryWrites=true'
+
 
 console.log('connecting to', url)
 
