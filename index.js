@@ -73,6 +73,7 @@ app.post('/api/persons', (req, res) => {
 app.get('/api/persons', (req, res) => {
   Person.find({}).then(result => {
     response.json(result)
+    mongoose.connection.close()
   })
 })
 
