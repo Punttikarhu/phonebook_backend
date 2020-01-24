@@ -71,7 +71,9 @@ app.post('/api/persons', (req, res) => {
 
 
 app.get('/api/persons', (req, res) => {
-  response.json(persons)
+  Person.find({}).then(result => {
+    response.json(result)
+  })
 })
 
 app.get('/api/persons/:id', (req, res) => {
