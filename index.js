@@ -1,4 +1,4 @@
-require('dotenv').config({path: 'C:/Users/Janne/react_app/puhelinluettelo_backend/.env'})
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
