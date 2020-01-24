@@ -2,9 +2,39 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const Person = require('./person')
 const morgan = require('morgan')
 const cors = require('cors')
+
+const mongoose = require('mongoose')
+
+const url = process.env.MONGODB_URI
+
+console.log('connecting to', url)
+
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(result => {
+    console.log('connected to MongoDB')
+  })
+  .catch(error => {
+    console.log('error connecting to MongoDB: ', error.message)
+  })
+
+const personSchema = new mongoose.Schema({
+  name: String,
+  number: String,
+  date: Date,
+})
+
+//Change returned json
+personSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id
+    delete returnedObject.__v
+  }
+})
+
+
 
 app.use(express.static('build'))
 app.use(cors())
