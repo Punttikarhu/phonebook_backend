@@ -18,8 +18,6 @@ const personSchema = new mongoose.Schema({
   date: Date,
 })
 
-const Person = mongoose.model('Person', personSchema)
-
 //Change returned json
 personSchema.set('toJSON', {
   transform: (document, returnedObject) => {
