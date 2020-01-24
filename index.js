@@ -71,7 +71,7 @@ app.post('/api/persons', (req, res) => {
 
 
 app.get('/api/persons', (req, res) => {
-    response.json("test")
+    response.json()
 })
 
 app.get('/api/persons/:id', (req, res) => {
