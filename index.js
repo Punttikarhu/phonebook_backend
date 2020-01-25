@@ -53,7 +53,7 @@ app.post('/api/persons', (req, res) => {
 
 app.get('/api/persons', (req, res) => {
   Person.find({}).then(persons => {
-    res.json(persons.map(persons => person.toJSON()))
+    res.json(persons.map(person => person.toJSON()))
   })
 })
 
