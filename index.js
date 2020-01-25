@@ -1,4 +1,4 @@
-const result = require('dotenv').config({path: __dirname + '/.env'})
+const result = require('dotenv').config({path: 'C:/Users/Janne/react_app/puhelinluettelo_backend/.env'})
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
