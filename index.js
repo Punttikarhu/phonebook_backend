@@ -1,13 +1,11 @@
 const result = require('dotenv').config({path: '.env'})
-const mongo = process.env.MONGODB_URI
+console.log(result.error)
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const Person = require('./models/person')
 const morgan = require('morgan')
 const cors = require('cors')
-
-
 
 app.use(express.static('build'))
 app.use(cors())
@@ -80,7 +78,7 @@ app.delete('/api/persons/:id', (req, res) => {
 app.get('/info', (req, res) => {
   res.send(`
     <div>
-    phonebook has info for ${result.error, mongo} people <br><br>
+    phonebook has info for ${result.error} people <br><br>
     ${new Date()}
     </div>
     `)
