@@ -1,5 +1,5 @@
 const dotenv = require('dotenv')
-dotenv.config()
+dotenv.config({ path: '/' })
 console.log(process.env.MONGODB_URI)
 const express = require('express')
 const bodyParser = require('body-parser')
