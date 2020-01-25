@@ -1,4 +1,5 @@
 const result = require('dotenv').config({path: '.env'})
+const mongo = process.env.MONGODB_URI
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
@@ -79,7 +80,7 @@ app.delete('/api/persons/:id', (req, res) => {
 app.get('/info', (req, res) => {
   res.send(`
     <div>
-    phonebook has info for ${result.error} people <br><br>
+    phonebook has info for ${result.error, mongo} people <br><br>
     ${new Date()}
     </div>
     `)

@@ -20,5 +20,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Punttikarhu/puhelinluettelo_backend.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Punttikarhu/puhelinluettelo_backend/issues"
+  },
+  "homepage": "https://github.com/Punttikarhu/puhelinluettelo_backend#readme"
 }
