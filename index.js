@@ -31,13 +31,13 @@ app.post('/api/persons', (req, res) => {
   }
 
   const person = new Person({
-    name: name,
-    number: number,
+    name: body.name,
+    number: body.number,
     date: new Date()
   }) 
 
   person.save().then(savedPerson => {
-    console.log(`added ${name} number ${number} to phonebook`)
+    console.log(`added ${body.name} number ${body.number} to phonebook`)
     res.json(savedPerson.toJSON())
   })
 })
