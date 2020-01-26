@@ -7,7 +7,7 @@
     "build:ui": "rm -rf build && cd C:/Users/Janne/react_app/puhelinluettelo && npm run build --prod && cp -r build C:/Users/Janne/react_app/puhelinluettelo_backend",
     "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
-    "logs:prod": "heroku logs --tail"
+    "logs:prod": "heroku logs --tail"  
   },
   "author": "J",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
     "nodemon": "^2.0.2"
   },
   "repository": {
