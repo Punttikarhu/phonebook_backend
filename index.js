@@ -76,7 +76,7 @@ app.delete('/api/persons/:id', (req, res) => {
 app.get('/info', (req, res) => {
   res.send(`
     <div>
-    phonebook has info for ${result.error} people <br><br>
+    phonebook has info for ${MONGODB_URI} people <br><br>
     ${new Date()}
     </div>
     `)
