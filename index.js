@@ -1,5 +1,3 @@
-const result = require('dotenv').config({path: '.env'})
-console.log(result.error)
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
