@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
@@ -23,12 +22,6 @@ app.post('/api/persons', (req, res) => {
     return res.status(400).json({ 
       error: 'name missing',
     })
-  }
-
-  if (persons.find(person => person.name === body.name)) {
-    return res.status(409).json({ 
-      error: 'name already exists',
-    })    
   }
 
   if (!body.number) {
