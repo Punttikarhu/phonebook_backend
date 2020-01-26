@@ -71,9 +71,10 @@ app.delete('/api/persons/:id', (req, res) => {
 })
 
 app.get('/info', (req, res) => {
+  const people = Person.find({}).length
   res.send(`
     <div>
-    phonebook has info for people <br><br>
+    phonebook has info for ${people} people <br><br>
     ${new Date()}
     </div>
     `)
